@@ -1,0 +1,194 @@
+.green{
+	background: rgba(71,192,123, 0.4);
+}
+
+.active{
+	background-color: rgba(64,65,62,0.8);
+}
+
+table tr td{
+	border-right: 1px #ccc dashed;
+	border-top: 1px #ccc dashed;
+	line-height: 21px;
+	height: 21px;
+	text-align: center;
+	width: 35px;
+}
+
+.content{
+	position: relative;
+	overflow-x: auto;
+
+	/*overflow-wrap: */
+}
+
+.t1 {
+	display: inline-block;	
+	height: auto;
+
+}
+
+.lline{
+	border-bottom: 1px #ccc dashed;
+}
+
+.fline{
+	border: none;
+	width: 20px;
+	font-weight: bold;
+}
+
+.sCol{
+	border-left: 1px #ccc dashed;
+}
+
+.b-red{
+	border-bottom: 2px solid red;
+}
+
+.l-red{
+	border-left: 2px solid red;
+}
+
+.red{
+	border: 2px solid red;
+}
+
+.deepGray{
+	background-color: #A1C34B;
+}
+
+.blue{
+	background-color: #507BA5;
+}
+.yellow{
+	background-color: yellow;
+}
+
+.top-red{
+	border-top: 2px solid red;
+}
+
+.r-red{
+	border-right: 2px solid red;
+}
+
+.gray{
+	background-color: #ccc;
+}
+
+.low-blue{
+	background-color: #69b9b2;
+}
+
+/*.t4, .t5{
+	display: inline-block;
+	margin-bottom: 15px;
+	
+}*/
+
+.origin{
+	background-color: #EDAF75;
+}
+
+
+.t2{
+	position: absolute;
+	top: 0;
+	left: 545px;
+	margin-left: 5px;
+}
+
+
+.t5{
+	position: absolute;
+	top: 264px;
+	left: 545px;
+	margin-left: 5px;
+}
+
+th label{
+	font-size: 14px;
+}
+
+th input{
+	width: 60px;
+}
+
+.t3{
+	position: absolute;
+	left:  955px;
+	top:25px;
+	margin-left: 5px;
+}
+
+
+
+.no-border{
+	border: none;
+}
+
+
+
+button::hover{
+	transform: scale(1.5) 1s;
+	-webkit-transform: scale(1.5) 1s;
+	-moz-transform: scale(1.5) 1s;
+}
+
+footer{
+	height: 38px;
+	line-height: 38px;
+	vertical-align: middle;
+	text-align: center;
+}
+.no-vertical-border{
+	padding-top: 15px; 
+}
+
+.no-vertical-border td{
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+.no-vertical-border:first-of-child(td) {
+	border-left:1px #ccc dashed;
+}
+
+.no-vertical-border:last-of-child(td) {
+	border-right:1px #ccc dashed;
+}
+
+.t3 tr td{
+	width: 35px;
+}
+
+/*三个输入框*/
+.tInput{
+	    width: 81px;
+}
+
+ul li{
+	list-style: none;
+	display: inline-block;
+}
+
+.t2 th,.t1 th{
+	text-align: center;
+}
+
+body{
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+footer{
+	position: fixed;
+	bottom: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+}
