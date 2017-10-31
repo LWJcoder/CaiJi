@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<form  id="app" action="/post" method="post">
+
 	<div class="content">
 <!-- 上一表 -->
 	<table class="t1">
@@ -661,7 +661,10 @@
 			<td class="lline">210</td>
 		</tr>	
 	</table>
-
+	
+	<div class="chbx">
+		<label for="chbox">A库</label><input id="chbox" type="checkbox">
+	</div>
 	<table class="t3">
 		<tr>
 			<td  class="sCol">381</td>
@@ -992,24 +995,21 @@
 		</tr>
 
 	</table>
-	<br>
-<!-- 	
-	<table class="t4">
-		
-	</table> -->
+
 
 	<table class="t5">
 		<tr>
 			<td colspan="3">
-				 <input type="text" placeholder="识别码" class="tInput" maxlength="30" name="reCode" id="reCode" />
+				 <input type="text" placeholder="识别码" title="识别码" class="tInput" maxlength="30" name="reCode" id="reCode" />
 			</td>
 			<td colspan="3">
-				 <input type="test" placeholder="结果码" class="tInput" maxlength="30" name="rsCode"  id="rsCode" />
+				 <input type="test" placeholder="结果码" title="结果码" class="tInput" maxlength="30" name="rsCode"  id="rsCode" />
 			</td>
-			<td colspan="4">
-				
-				<input type="number" name="pageNum" placeholder="页码" class="tInput" id="pageNum" maxlength="15">
+			
+			<td colspan="4">				
+				<input type="number" name="pageNum" placeholder="页码" title="页码" class="tInput" id="pageNum" maxlength="15">
 			</td>
+
 		</tr>
 
 		<tr>
@@ -1248,15 +1248,12 @@
 
 	<footer>
 		<button id="update" class="btn btn-success btn-small">修改</button>
-		<input type="submit" id="confirm" class="btn btn-success btn-small" value="确认">
+		<input type="button" id="confirm" class="btn btn-success btn-small" value="确认">
 	</footer>
-
-	</form>
 	<script type="text/javascript" src="js/jquery.js"></script>
-	
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- <script type="text/javascript" src="./js/plugin/vue.js"></script> -->
+	<script type="text/javascript" src="./js/Ajax.js"></script>
 	<script type="text/javascript" src="./js/render.js"></script>
 	<script type="text/javascript" src="./js/check.js"></script>
 	<script type="text/javascript" src="./js/index.js"></script>

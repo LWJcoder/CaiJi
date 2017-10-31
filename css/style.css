@@ -1,6 +1,20 @@
 .green{
 	background: rgba(71,192,123, 0.4);
 }
+#pageNum{
+	color: rgba(71,192,123, 0.6);
+	font-weight: bold;
+}
+
+#rsCode{
+	color: black;
+	font-weight: bold;
+}
+
+#reCode{
+	color:#EDAF75;
+	font-weight: bold;
+}
 
 .active{
 	background-color: rgba(64,65,62,0.8);
@@ -13,6 +27,7 @@ table tr td{
 	height: 21px;
 	text-align: center;
 	width: 35px;
+
 }
 
 .content{
@@ -95,7 +110,7 @@ table tr td{
 .t2{
 	position: absolute;
 	top: 0;
-	left: 545px;
+	left: 565px;
 	margin-left: 5px;
 }
 
@@ -103,7 +118,7 @@ table tr td{
 .t5{
 	position: absolute;
 	top: 264px;
-	left: 545px;
+	left: 565px;
 	margin-left: 5px;
 }
 
@@ -122,6 +137,11 @@ th input{
 	margin-left: 5px;
 }
 
+.chbx{
+	position: absolute;
+	right: 10em;
+	top:5px;
+}
 
 
 .no-border{
