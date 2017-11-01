@@ -60,7 +60,7 @@ Hf.prototype.renderChangeOpt =  function(e, which, name, callback){
 		//id 值设为 行名称 + 列号
 		Y5id = transXArr[r-1] + "-" + transYArr[colNo-1];
 		console.log("id:"+ Y5id + " X:"+ mf.GetXIndex(target));
-		var opt = "<select  id='"+Y5id+"' class='"+name+"-val' onchange='"+callback+"(this, "+colNo+")'>";			
+		var opt = "<select  id='"+Y5id+"' class='"+name+"-val' onchange='"+callback+"(this, "+r+","+(colNo-4)+")'>";			
 		for (var i= 0, len = which.length ; i <= len; i++) {
 			if ( i == 0) {
 				opt += "<option value=' '> &nbsp; </option>";
@@ -75,12 +75,17 @@ Hf.prototype.renderChangeOpt =  function(e, which, name, callback){
 
 Hf.prototype.renderInput = function(e, name){
 	var target = e.target || window.target;
-	if (target && !$(target).html()) {
-		var str = "";
-		str += "<input type='number' min='101' max='300' v-model='S' id='"+name+ mf.GetXIndex(target)+"'>"
+	var str = "";
+	var colNo =  mf.GetYIndex(target),
+		r = mf.GetXIndex(target),
+		//id 值设为 行名称 + 列号
+		id = transXArr[r-1] + "-" + transYArr[colNo-1];
+		console.log(target.nodeName.toLowerCase())
+	if (target && target.nodeName.toLowerCase()=="td" && (!$(target).html())) {
+		
+		str += "<input type='number' min='101' max='300'  id='"+id+"'>"
 	}
 	$(target).html($(str));
-
 }
 
 

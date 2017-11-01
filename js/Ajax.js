@@ -48,10 +48,16 @@
 				}  
 		}
 		xhr.open('post', url);
-		xhr.send(data);
+		var encData = encodeData(data);
+		console.log("encData  "+ encData);
+		xhr.send(encData);
 
+		
 	}
 
+	function encodeData(data){
+		return Base64.encode(JSON.stringify(data));
+	}
 
 
   //          5.Exports
