@@ -16,11 +16,17 @@
 	font-weight: bold;
 }
 
+.t1 select{
+	width: 41px;
+	height: 20px;
+}
+
 .errStyle{
 	box-shadow:4px 4px 2px rgba(244,50,50,0.3);
 }
 .active{
-	background-color: rgba(64,65,62,0.8);
+	box-shadow: 2px 2px 1.5px #aaaaaa;
+	/*background-color: rgba(64,65,62,0.8);*/
 }
 
 table tr td{
@@ -30,7 +36,7 @@ table tr td{
 	height: 21px;
 	text-align: center;
 	width: 35px;
-
+	padding: 1px 2px;
 }
 
 .content{
@@ -206,7 +212,7 @@ body{
 	overflow-x: scroll;
 }
 
-footer{
+footer .rt{
 	position: fixed;
 	bottom: 5px;
 	left: 50%;
@@ -214,6 +220,12 @@ footer{
 	-webkit-transform: translateX(-50%);
 	-moz-transform: translateX(-50%);
 	-o-transform: translateX(-50%);
+}
+
+footer .lf{
+	position: fixed;
+	left: 10%;
+	bottom: 5px;
 }
 
 .a_56 td:not(:first-of-type):not(:last-of-type), .b_56 td:not(:first-of-type):not(:last-of-type){
@@ -407,4 +419,48 @@ footer{
 
 .dc12{
 	background-image: url('../img/tc12.png');
+}
+
+
+#allCode, #msg{
+	background: rgba(60,60,60,0.4);
+	color: white;
+	font-size: 18px;
+	font-weight: bold;	
+}
+
+.msgStyle{
+	width: 450px;
+	height: 250px;
+	overflow: hidden;
+	white-space: pre-wrap;
+
+}
+
+#msg{
+	position: relative;
+	z-index: 100;
+}
+
+#msg p{
+	padding: 8px 10px;
+}
+
+#msg .btn{
+	position: absolute;
+	bottom: 8px;
+	text-align: center;
+
+}
+
+.content{
+	position: relative;
+}
+
+#msg{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
 }

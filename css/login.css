@@ -1,0 +1,154 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+   
+}
+
+header{
+    margin-top: 100px;
+}
+
+.form-signin-heading{
+    text-align: center;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+a {
+    color: #00B7FF;
+
+}
+
+h2{
+    text-align: center;
+}
+
+
+.load{
+    vertical-align: middle;
+    margin-bottom: 25px;
+    background-color: #999;
+
+}
+
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.header{
+    background-color: #3d3d3d ;
+    width:100%;
+    height: 28px;
+    font-size:12px;
+}
+.title span{
+    color: #fff;
+}
+
+.doc, .messages{
+    border:gray solid 1px;
+}
+.doc{
+    display: none;
+}
+.action{
+    border-radius: 8px;
+
+}
+
+
+.action {
+    float: left;
+    display: inline-block;
+}
+
+
+ #msg{
+    background: rgba(60,60,60,0.4);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;  
+}
+
+.msgStyle{
+    width: 450px;
+    height: 250px;
+    overflow: hidden;
+    white-space: pre-wrap;
+
+}
+
+#msg{
+    position: relative;
+    z-index: 100;
+}
+
+#msg p{
+    padding: 8px 10px;
+}
+
+#msg .btn{
+    position: absolute;
+    bottom: 8px;
+    text-align: center;
+
+}
+
+
+#msg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.container{
+     position: relative;
+}
+
+.form1{
+    margin-top: 40px;
+}
+
+.remenberMe{
+    color: gray;
+    font-size: 13px;
+
+}

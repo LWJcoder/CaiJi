@@ -30,9 +30,10 @@ Hf.prototype.renderOpt =  function(e, which, name){
 	var target = e.target ;
 	if (target && !$(target).html()){
 		//id 值设为 行名称 + 列号
+		$(target).css("background-image","none");
 		Y5id = transXArr[mf.GetXIndex(target)-1] + "-" + transYArr[mf.GetYIndex(target)-1];
 		console.log("id:"+ Y5id + "X:"+ mf.GetXIndex(target));
-		var opt = "<select  id='"+Y5id+"' class='"+name+"-val'>";			
+		var opt = "<select   id='"+Y5id+"' class='active "+name+"-val'>";			
 		for (var i= 0, len = which.length ; i <= len; i++) {
 			if ( i == 0) {
 				opt += "<option value=' '> &nbsp; </option>";
@@ -45,6 +46,32 @@ Hf.prototype.renderOpt =  function(e, which, name){
 };
 
 
+//渲染带有change事件的select
+// e: event,
+// which: 数组
+// name: id用
+Hf.prototype.renderChangeSelect =  function(e, which, name){	
+	
+	var target = e.target ;
+	if (target && !$(target).html()){
+		var colNo =  mf.GetYIndex(target),
+			r = mf.GetXIndex(target);
+		//id 值设为 行名称 + 列号
+		Y5id = transXArr[r-1] + "-" + transYArr[colNo-1];	
+		var opt = "<select  id='"+Y5id+"' class='active "+name+"-val' onchange='onSelectChange(this)'>";			
+		for (var i= 0, len = which.length ; i <= len; i++) {
+			if ( i == 0) {
+				opt += "<option value=' '> &nbsp; </option>";
+				}else{
+					opt += "<option value='"+which[i-1]+"'>"+which[i-1]+"</option>";
+					}			
+				}
+			opt += "</select>";
+		
+				
+		$(target).html($(opt));		
+	}
+};
 
 
 //渲染带有change事件的select
@@ -83,7 +110,7 @@ Hf.prototype.renderInput = function(e, name){
 		console.log(target.nodeName.toLowerCase())
 	if (target && target.nodeName.toLowerCase()=="td" && (!$(target).html())) {
 		
-		str += "<input type='number' min='101' max='300'  id='"+id+"'>"
+		str += "<input type='number' min='101' max='300' class='S-val'  id='"+id+"'>"
 	}
 	$(target).html($(str));
 }

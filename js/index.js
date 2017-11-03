@@ -28,6 +28,47 @@ function N5Select(colNo,y, value){
 		$("#I-"+transYArr[Number(y)]).val(value);
 }
 
+var arrCode = [];
+
+function onSelectChange(that){
+	var value = $(that).val();
+	var id = $(that).attr("id"),
+		reCode = $("#reCode").val(),
+		rsCode = $("#rsCode").val();
+		var str = "<span>";
+	if (id) {
+		id = id.replace("-", "");
+	}
+	var flag = -1;
+	for (var i = arrCode.length - 1; i >= 0; i--) {
+		if (arrCode[i].indexOf(id)  >= 0) {
+			flag = i;
+		}
+	}
+	if (flag != -1) {
+		arrCode[flag] = id + value;
+	}else{
+		 arrCode.push(id+value);
+	}
+	
+	
+
+	 if (reCode) {
+	 	arrCode.push(reCode);
+	 }
+
+	 if (rsCode) {
+	 	arrCode.push(rsCode);
+	 }
+	
+	//  for (var i = arrCode.length - 1; i >= 0; i--) {
+	//  	str += arrCode[i];
+	//  }
+	str +=[...new Set(arrCode)].sort()+ " </span>";
+	$("#allCode").html(str);
+	console.log(str)
+}
+
 //D 栏位改变
 function DChange(that, colNo,y){
 	// var D = $(".D-val").val(),
@@ -39,7 +80,7 @@ function DChange(that, colNo,y){
 	// }else if (D == "-0" && T == "-3") {		
 	// 	//console.log("index:"+colNo);
 	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
+	// 	// mf.renderChangeSelect(dom, array.N5_all, "N5");
 	// 	dom.click();
 	// 	$(".N5-val").val("11");
 	// }else if (D == "8" && T == "1") {		
@@ -112,46 +153,46 @@ function DChange(that, colNo,y){
 		var that = this;
 		switch (cla){
 			case "Y5":
-				mf.renderOpt(e, array.Y5,"Y5");
+				mf.renderChangeSelect(e, array.Y5,"Y5");
 				break;
 			case "W":
-				mf.renderOpt(e, array.W, "W");
+				mf.renderChangeSelect(e, array.W, "W");
 				break;
 			case "a_12": 
-				mf.renderOpt(e, array.a_12, "a_12");
+				mf.renderChangeSelect(e, array.a_12, "a_12");
 				break;
 			case "a_6": 
-				mf.renderOpt(e, array.a_6, "a_6");
+				mf.renderChangeSelect(e, array.a_6, "a_6");
 				break;
 			case "T5": 
-				mf.renderOpt(e, array.T5, "T5");
+				mf.renderChangeSelect(e, array.T5, "T5");
 				break;
 			case "F5": 
-				mf.renderOpt(e, array.F5, "F5");
+				mf.renderChangeSelect(e, array.F5, "F5");
 				break;
 			case "J4": 
-				mf.renderOpt(e, array.J4, "J4");
+				mf.renderChangeSelect(e, array.J4, "J4");
 				break;
 			case "T": 
 				let tv = $(".T5-val").val();
 				switch(tv){
 					case "91":
-						mf.renderOpt(e, array.T[0], "T" );
+						mf.renderChangeSelect(e, array.T[0], "T" );
 					break;
 					case "93":
-						mf.renderOpt(e, array.T[1], "T" );
+						mf.renderChangeSelect(e, array.T[1], "T" );
 					break;
 					case "95":
-						mf.renderOpt(e, array.T[2], "T" );
+						mf.renderChangeSelect(e, array.T[2], "T" );
 					break;
 					case "97":
-						mf.renderOpt(e, array.T[3], "T" );
+						mf.renderChangeSelect(e, array.T[3], "T" );
 					break;
 					case "99":
-						mf.renderOpt(e, array.T[4], "T" );
+						mf.renderChangeSelect(e, array.T[4], "T" );
 					break;
 					default:
-						mf.renderOpt(e, array.T_all, "T" );
+						mf.renderChangeSelect(e, array.T_all, "T" );
 					break;
 				}
 				
@@ -160,55 +201,55 @@ function DChange(that, colNo,y){
 				
 				//mf.clearOtherSelect(that);
 				
-				mf.renderOpt(e, array.D, "D");
+				mf.renderChangeSelect(e, array.D, "D");
 				break;
 			case "C": 
 				if ($(".D-val").html()) {
 					var num = $(".D-val").val();
 
 					var index = mf.getDIndex(num);
-					mf.renderOpt(e, array.C[index], "C");	
+					mf.renderChangeSelect(e, array.C[index], "C");	
 				}else{
-					mf.renderOpt(e, array.C_all, "C");	
+					mf.renderChangeSelect(e, array.C_all, "C");	
 				}												
 				break;
 			case "C5":
 				var num = $(".D-val").val();
 				var index = mf.getDIndex(num);
 				if (index >= 0) {
-					mf.renderOpt(e, array.C5[index], "C5");	
+					mf.renderChangeSelect(e, array.C5[index], "C5");	
 				}else{
-					mf.renderOpt(e, array.C5_all, "C5");	
+					mf.renderChangeSelect(e, array.C5_all, "C5");	
 				}
 									
 				break;
 			case "C6": 
-				mf.renderOpt(e, array.C6, "C6");
+				mf.renderChangeSelect(e, array.C6, "C6");
 				break;
 			case "D5": 
-				mf.renderOpt(e, array.D5, "D5");
+				mf.renderChangeSelect(e, array.D5, "D5");
 				break;
 			case "a_56":
-				mf.renderOpt(e, array.a_56, "a_56");
+				mf.renderChangeSelect(e, array.a_56, "a_56");
 				break;
 			case "b_56":
-				mf.renderOpt(e, array.b_56, "b_56");
+				mf.renderChangeSelect(e, array.b_56, "b_56");
 				break;
 			case "N5":
 				var num = $(".Y5-val").val();
 				var index = mf.getY5Index(num);
 				
 				if (index >= 0) 
-					mf.renderOpt(e, array.N5[index],"N5");
+					mf.renderChangeSelect(e, array.N5[index],"N5");
 				else
-					mf.renderOpt(e, array.N5_all,"N5");
+					mf.renderChangeSelect(e, array.N5_all,"N5");
 				
 				break;
 			case "S":
 				mf.renderInput(e, "S");
 				break;
 			case "b_6": 
-				mf.renderOpt(e, array.a_6, "b_6");
+				mf.renderChangeSelect(e, array.a_6, "b_6");
 				break;
 			default:
 
@@ -218,6 +259,10 @@ function DChange(that, colNo,y){
 
 	})
 
+
+	// $('.t1 tr td select').click(function(){
+
+	// })
 function clearWithId(id){
 	$("#"+id).parent().html("");
 }
@@ -243,10 +288,12 @@ function clearInput(){
 		$("#chbox").attr("checked", false);
 }
 
+
+
 //提交
 $("#confirm").click(function(e){
 	//check.checkNumber(101,600, "int",$(e).val(), "S");
-	var data = {
+	var data1 = {
 		resultCode : $("#rsCode").val(),
 		identifyCode: $("#reCode").val(),
 		pageCode: $('#pageNum').val(),
@@ -258,6 +305,7 @@ $("#confirm").click(function(e){
 	var acquisitionData = [];
 	var select = $(".t1 tr td").find("select"),
 		len = select.length;
+
 	for (var i = len - 1; i >= 0; i--) {
 		var id = select[i].getAttribute("id");
 		var str = id.split("-");
@@ -266,18 +314,16 @@ $("#confirm").click(function(e){
 			y: str[1],
 			v: $("#"+id).val()
 		});
-		//console.log(str[0], str[1],$("#"+select[i].getAttribute("id")).val())
+//console.log(str[0], str[1],$("#"+select[i].getAttribute("id")).val())
 		//console.log(Base64.decode(''))
 
 	}
 
 	// 将S栏值加入
-	var inp = $(".S td").find("input");
-	if (inp) {
-		for (var i = len - 1; i >= 0; i--) {
-			var id = inp[i].getAttribute("id");
+	 $(".S input").each(function(){
+		var id = $(this).attr("id");
 			var str = id.split("-");
-			var value = Number($("#"+id).val());
+			var value = Number($(this).val());
 			if (value <101 || value > 600) {
 				$("#"+id).addClass("errStyle");
 				alert("S 栏必须大于101，小于600");
@@ -289,25 +335,50 @@ $("#confirm").click(function(e){
 				v: value
 			});	
 			}
-				
-		}
-	}
-
-
-	data.acquisitionData = acquisitionData;
-
-	var ajax = new Ajax();
-	ajax.post("http://172.0.0.1/acquisition/post", data, function(data){
-		if (data.code == 0) {
-			// 清除旧数据
-			clearInput();
-			$(".t1 .S input").removeClass("errStyle");
-			alert("添加成功");
-		}
-	}, function(data){
-		$(".t1 .S input").removeClass("errStyle");
-		alert('添加失败， 原因：'+ data.msg);
 	});
+
+	 // {"resultCode":"resultCode","identifyCode":"identifyCode","pageCode":"pageCode","intoDbA":1,"crossCheck":0,"masterCheck":0,"acquisitionData":[{"x":1,"y":2,"v":12},{"x":3,"y":4,"v":34},{"x":5,"y":6,"v":56}]}
+	
+	data1.acquisitionData = acquisitionData.sort();
+	
+	//console.log(Base64.encode(JSON.stringify(data)))
+	   $.ajax({
+            //提交数据的类型 POST GET
+            type: "POST",
+            //提交的网址
+            url: "http://192.168.31.236/acquisition/post",  
+           
+            //提交的数据
+            data: {data:Base64.encode(JSON.stringify(data1))},
+            //返回数据的格式
+           // datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+            //在请求之前调用的函数
+            beforeSend:function(){$("#msg").html("正在提交， 请稍后......");},
+            //成功返回之后调用的函数             
+            success:function(data){
+            	
+            	var str = "<p>"+data.msg + "</p>\
+            				<button class='btn btn-small btn-success' onclick='conMsg()'> 确认</button>";
+           		$("#msg").html($(str));    
+           		$("#msg").css("display", "block").addClass("msgStyle");        
+            }   ,
+            //调用执行后调用的函数
+            complete: function(XMLHttpRequest, textStatus){
+               console.log(Base64.decode(XMLHttpRequest.responseText));
+               //alert(textStatus);
+                //HideLoading();
+            },
+            //调用出错执行的函数
+            error: function(){
+                //请求出错处理
+            }         
+         });
+
+
 
 });
 
+
+ function conMsg(){
+	$("#msg").css("display", "none");
+}

@@ -33,7 +33,7 @@
 	//ajax.prototpye.get = new ajax();
 	
 
-	Ajax.prototype.post = function (url,data, success, fail){
+	Ajax.prototype.post = function (url,data1, success, fail){
 		var xhr = new ajaxXhr();
 		xhr.onreadystatechange = function(){
 			if (xhr.readyState !== 4) {return;}
@@ -48,9 +48,10 @@
 				}  
 		}
 		xhr.open('post', url);
-		var encData = encodeData(data);
-		console.log("encData  "+ encData);
-		xhr.send(encData);
+		// var data =new Array(data1) ;
+		var data = encodeData(data1);
+		console.log("encData  "+ data);
+		xhr.send(data);
 
 		
 	}
