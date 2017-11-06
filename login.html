@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>登录页面</title>
-    
-    <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.4/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/login.css" media="screen">
     <link rel="stylesheet" href="./css/reset.css" media="screen">
 </head>
@@ -17,49 +17,50 @@
     <div id="msg"></div>
 
     <canvas id="canvas_nest" width="343" height="676" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
-    <form class="form-signin form1" method="post" action="http://192.168.31.236/acquisition/login" id="form">
+    <form class="form-signin form1" method="post" id="form">
         
         <div class="form-group">
-            <label for="username" class="control-label col-sm-3">用户名</label>
+            <label for="username" class="control-label col-sm-8">用户名</label>
             <input class="username inputName form-control col-sm-9" name="staffCode" id="username" placeholder="请输入用户名" type="text" required autofocus/>
         </div>
         
         <div class="form-group">
             <label for="password" class="control-label col-sm-3">密码</label>
-        <input type="password" class="password col-sm-9 form-control" name="password" id="password" placeholder="密码" minlength="3" required autocomplete="false" />
+        <input type="password" class="password col-sm-9 form-control" name="password" id="password" placeholder="请输入密码" minlength="3" required autocomplete="false" />
         </div>
         
 
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginWeb" >登录</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="loginWeb" >登录</button>
 
-       <!--  <div class="fr">
+     <!--    <div class="fr">
             <input type="checkbox" name="remenber"  id="remenberMe" /><span  class=" remenberMe"> 记住我</span>
        
         </div> -->
         
     </form>
 </div>
+<script type="text/javascript" src="./js/common.js"></script>
 <script src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/plugin/md5.min.js"></script>
+<script type="text/javascript" src="./js/plugin/base64.js"></script>
 <script type="text/javascript" src="./js/Cookie.js"></script>
-<script type="text/javascript">
-    var cookie = new Cookie();
-    var ck = cookie.getCookie(),
-        len = ck.length;
-    if (len > 0) {
-        for (var i = ck.length - 1; i >= 0; i--) {
-              if (ck[i].username) {
-                $("#username").val(ck[i]);
 
-              }
-              if (ck[i].password) {
-                $("#password").val(ck[i].password);
-              }
-        }
-    }
-  
-</script>
 <script type="text/javascript" src="./js/plugin/canvas-nest.min.js"></script>
 <script type="text/javascript" src="./js/login.js"> </script>
+<script type="text/javascript">
+  //回车事件： 
+  $(function(){
+   
+
+    $("input").bind("keydown", function(e){
+        if (e.which == 13) {
+            e.preventDefault();
+            $("#loginWeb").click();
+           
+        }
+    });
+  })
+</script>
 </body>
 </html>

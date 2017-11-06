@@ -43,13 +43,12 @@ table tr td{
 	position: relative;
 	overflow-x: auto;
 
-	/*overflow-wrap: */
 }
 
 .t1 {
 	display: inline-block;	
 	height: auto;
-
+	margin-bottom: 80px;
 }
 
 .lline{
@@ -126,7 +125,7 @@ table tr td{
 
 .t5{
 	position: absolute;
-	top: 264px;
+	top:291px;
 	left: 565px;
 	margin-left: 5px;
 }
@@ -208,7 +207,7 @@ ul li{
 }
 
 body{
-	overflow-y: hidden;
+	
 	overflow-x: scroll;
 }
 
@@ -230,90 +229,63 @@ footer .lf{
 
 .a_56 td:not(:first-of-type):not(:last-of-type), .b_56 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/56.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .F5 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/f5.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .Y5 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/y5.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .J4 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/j4.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .W td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/w.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .a_12 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/12.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .a_6 td:not(:first-of-type):not(:last-of-type),.b_6 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/6.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .T5 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/t5.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .N5 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/n5.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .C td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/c.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .C5 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/c5.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .C6 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/c6.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .D5 td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/d5.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .S td:not(:first-of-type):not(:last-of-type){
 	background-image: url('../img/s.png');
-	background-repeat: no-repeat;
-	overflow: hidden;
 }
 
 .tc1,.tc2, .tc3, .tc4,.tc5, .tc6, .tc7, .tc8, .tc9,.tc10,.tc11,.tc12,
-.dc1,.dc2,.dc3,.dc4,.dc5,.dc6,.dc7,.dc8,.dc9,.dc10,.dc11,.dc12{
+.dc1,.dc2,.dc3,.dc4,.dc5,.dc6,.dc7,.dc8,.dc9,.dc10,.dc11,.dc12,
+.a_56 td, .S td, .D5 td, .C6 td,.C5 td, .C td,.N5 td, .T5 td,.a_6 td,.a_12 td, .W td,.J4 td, .F5 td, .Y5 td {
 	background-repeat:no-repeat;
 	overflow: hidden;
 }

@@ -346,7 +346,7 @@ $("#confirm").click(function(e){
             //提交数据的类型 POST GET
             type: "POST",
             //提交的网址
-            url: "http://192.168.31.236/acquisition/post",  
+            url: window.domain  + "/acquisition/post",  
            
             //提交的数据
             data: {data:Base64.encode(JSON.stringify(data1))},
