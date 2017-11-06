@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交叉校验</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-datepicker.css">
+	   <link href="./css/pagination.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		tr th,tr td{
+			padding: 3px 8px ;
+		}
+	
+		.man,.start, .end{
+			display: inline-block;
+
+		}
+
+		.count{
+			display: inline-block;
+		}
+
+	</style>
+	<link href="./css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="action">
+		<div class="man">
+			<label>录入人员</label>
+			<select id="inputMan" v-model = "inputMan">
+				
+			</select>
+		</div>
+
+		<div class="start">
+			<label for="startDate">录入日期</label>
+			<input type="text" readonly="readonly" name="date" id="startDate" v-model="startDate">
+			<span class="add-on">
+	         <i class="icon-calendar"></i> 
+	        </span>
+	    </div>
+	    <div class="end">
+			<label for="endDate">录入日期</label>
+			<input type="text" readonly="readonly" name="date" id="endDate" v-model="endDate">
+			<span class="add-on">
+	         <i class="icon-calendar"></i> 
+	        </span>
+		</div>
+		
+		<button class="btn btn-sm btn-success" id="search">查询</button>
+		
+	</div>
+	<table class="checkOther" id="listTable">
+		<tr>			
+			<th>结果码</th>
+			<th>识别码</th>
+			<th>页码</th>
+			<th>是否进入A库</th>
+			<th>横坐标</th>
+			<th>纵坐标</th>
+			<th>值</th>
+			<th>是否通过交叉校验</th>
+			<th>是否通过大师校验</th>
+			<th>操作</th>
+		</tr>
+		
+	</table>
+	<table id="listTable"></table>
+	
+	<div id="pagination-container"></div>
+	<div class="count">
+		<label>显示数量</label>
+		<select id="count">
+			<option value="10">10</option>
+			<option value="10">30</option>
+			<option value="10">50</option>
+			<option value="10">80</option>
+		</select>
+	</div>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/common.js"></script>
+	<script type="text/javascript" src="./js/plugin/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="./js/plugin/bootstrap-datepicker.zh-CN.min.js"></script>
+	<script type="text/javascript" src="./js/plugin/base64.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		var lists = null;
+		var count =  pageSize = 10, curPage = 1;
+
+		$('#startDate').datepicker({
+		  		format: 'yyyy-mm-dd',
+		  		language: 'zh-CN',
+		        weekStart: 1,
+		        autoclose: true,
+		        todayBtn: 'linked',
+		        todayHighlight:true,
+		        
+		 });
+		 $('#endDate').datepicker({
+			  		format: 'yyyy-mm-dd',
+			  		language: 'zh-CN',
+			        weekStart: 1,
+			        autoclose: true,
+			        todayBtn: 'linked'
+			 }).on('changeDate',function(ev){
+			  var endTime = $("#endDate").val(),//ev.date.valueOf(),
+			  	  start = $("#startDate").val();
+			  	  console.log(start, endTime)
+			  end = endTime;
+			  if(end<start){
+			   alert("结束时间不能早于开始时间 ！");
+			   
+			  }
+			 });
+
+		function edit(){
+			window.location.href="./edit.html";
+		}
+
+		function check(id){
+			if (id) {
+				window.itemId = id;
+				window.location.href = "./input.html";
+			}
+		}
+
+		$("#search").click(function(){
+			search(count, pageSize, curPage);
+		});
+
+		function search (count, pageSize, curPage){
+			var inputMan = $("#inputMan").val(),
+				startDate = $("#startDate").val(),
+				endDate = $("#endDate").val(),
+				count =  $("#count").val() || count ,
+				pageSize = pageSize,
+				pageStart = curPage,
+				data = {};
+				// if (!count || !pageSize || !pageStart) {
+				// 	alert("页码出错");
+				// 	return;
+				// }
+
+				data.count = count;
+				data.pageSize = pageSize;
+				data.pageStart = pageStart;
+
+				if (inputMan) {
+					data.acquisitionOpCode = inputMan;
+				}
+
+				if (startDate) {
+					data.genTimeBegin = startDate;
+				}
+
+				if (endDate) {
+					data.genTimeEnd = endDate;
+				}
+
+
+				$.ajax({
+					type: "get",
+					url:window.domain + "/acquisition/get",
+					data: Base64.encode(JSON.stringify(data)) ,
+					success: function(data){
+						lists = data;
+						var temp = render(data);
+						$("#listTable").appendChild($(temp));
+					}
+				});
+		
+		 }
+
+		 function render(data){
+		 	var temp ='';
+		 	if (data) { lists = data;}
+		 	if(lists){
+		 		for (var i = lists.length - 1; i >= 0; i--) {
+		 			var item = lists[i];
+		 			temp += '<tr>\
+						<td> <span class="hide">{{item.id}}</span> {{item.resultCode}}</td>\
+						<td> {{item.identifyCode}}</td>\
+						<td> {{item.pageCode}}</td>\
+						<td> {{item.intoDbA}}</td>\
+						<td> {{item.acquisitionData.x}}</td>\
+						<td> {{item.acquisitionData.y}}</td>\
+						<td> {{item.acquisitionData.v}}</td>\
+						<td> {{item.crossCheck}}</td>\
+						<td> {{item.masterCheck}}</td>\
+						<td><button class="btn btn-small btn-success" onclick="edit()">修改</button> <button class="btn btn-small btn-success" onclick="check({{item.id}})">交叉校验</button></td>\
+					</tr>';
+
+		 		}
+		 		
+		 		
+		 	}
+		 	return temp;
+		 }
+
+		search(count, pageSize, curPage );
+
+		var sources = function () {
+		var result = [];
+		var countNum = 35;//lists.pageCount ? lists.pageCount : 1;
+		for (var i = 1; i < (countNum); i++) {
+		        result.push(i);
+		      }
+
+		      return result;
+		 }();
+
+	
+			var options = {
+		      dataSource: sources,
+		      callback: function (res, pagination) {
+		        //window.console && console.log(data, pagination);
+		         var curPage =  pagination.pageNumber;
+		         var pageSize = pagination.pageSize;
+		         console.log(curPage)
+		       	 search(count, pageSize, curPage);
+		      }
+		    };
+
+		$('#pagination-container').pagination(options);
+		
+		
+		}
+		
+
+		// var app = angular.module('checkPage',[]);
+		// app.controller('contl', function ($scope, $http){
+
+		// 	$scope.getList = function () {
+		// 		$scope.lists = [];//{"identifyCode":11,"resultCode":"123","itemId": 123}
+		// 		$http.get(window.domain+ "/acquisition/get").then(success, error);
+		// 	}
+
+		// function success(data){
+		// 			$scope.lists = data;
+		// 		}
+
+		//  function error(err){
+		// 			console.log(err);
+		// 		};
+
+		// $scope.getList();
+
+
+
+		//  $scope.startDate = '';
+		//  $scope.endDate = '';
+		//  $scope.inputMan = '';
+		//  $scope.search = function(){
+
+			
+		// });
+	</script>
+	<script type="text/javascript" src="./js/plugin/pagination.min.js"></script>
+
+</body>
+</html>

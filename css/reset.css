@@ -29,5 +29,10 @@ ul li{
 }
 
 .hide{
-	visibility: hidden;
+	/*visibility: hidden;*/
+	display: none;
+}
+
+.show{
+	display: block;
 }

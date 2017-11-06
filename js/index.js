@@ -382,3 +382,11 @@ $("#confirm").click(function(e){
  function conMsg(){
 	$("#msg").css("display", "none");
 }
+
+function start(){
+	if (window.itemId) {
+		alert((window.itemId));
+	}
+}
+
+start();

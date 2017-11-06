@@ -1,4 +1,5 @@
-
+window.crossCheckEnable = -1;
+window.masterCheckEnable = -1;
 
 $("#loginWeb").click(function (){
 	var name = $("#username").val(),
@@ -10,10 +11,13 @@ $("#loginWeb").click(function (){
 		$.ajax({
 			type: "post",
 			url: window.domain + "/acquisition/login",
+
 			data: {data: Base64.encode(JSON.stringify(obj))},
 			success: function(data){
-				if (data.code == 0 || data.msg.toLowerCase() == "ok") {
-					  window.location.href = window.domain + "/caiji/index.html"
+				if (data.code == "0" ) {
+					  window.location.href = window.domain + "/index.html";
+					  window.crossCheckEnable = data.crossCheckEnable;
+					  window.masterCheckEnable = data.masterCheckEnable;
 				}else  {
 					var str = "<p>"+data.msg + "</p>\
 			            				<button class='btn btn-small btn-success' onclick='conMsg()'> 确认</button>";
