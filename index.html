@@ -31,30 +31,10 @@
 	<div class="parent">
 		<div class="child">
 			<a  class="btn btn-success" href="./input.html">录入</a>
-			<a id="cross" class="btn btn-success" href="./checkOther.html">交叉校验</a> 
-			 <a class="btn btn-success" href="./edit.html">修改</a> 
-			<a id="master" class="btn btn-success" href="./masterCheck.html">大师校验</a> 
+			<a id="master" class="btn btn-success" href="./check.html">校验</a> 
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		window.onload = function(){
-			var c = document.getElementById("cross");
-			var m = document.getElementById("master");
-			if (window.masterCheckEnable == "1") {
-				
-				m.className = "hide";
-			}else if (window.masterCheckEnable == "0") {
-				m.className = "btn btn-success show";
-			}
 
-			if ( window.crossCheckEnable == "1") {
-				
-				c.className = "hide";
-			}else if (window.crossCheckEnable == "0") {
-				c.className = "btn btn-success show";
-			}
-		}
-	</script>
 </body>
 </html>

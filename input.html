@@ -1022,8 +1022,8 @@
 			<td class="origin">213</td>
 			<td class="origin">214</td>
 			<td class="origin">215</td>
-			<td class="l-red deepGray">216</td>
-			<td class="deepGray r-red">217</td>
+			<td class="l-red gray">216</td>
+			<td class="gray r-red">217</td>
 			<td>218</td>
 			<td>219</td>
 			<td>220</td>
@@ -1259,13 +1259,59 @@
 		
 	</footer>
 	</div>
+
+	
 	<script type="text/javascript" src="./js/common.js"></script>
 	<script type="text/javascript" src="./js/data.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="./js/plugin/base64.js"></script>
-	<script type="text/javascript" src="./js/Ajax.js"></script>
 	<script type="text/javascript" src="./js/render.js"></script>
 	<script type="text/javascript" src="./js/check.js"></script>
 	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="./js/util.js"></script>
+	<script>
+
+		var util = new Util();
+		
+		var d = util.getUrlPar();
+			if (d["title"]) {
+				document.title = decodeURI(d["title"]) ;
+			}
+		
+
+		var isSelf = false;
+
+		if (window.crossCheckEnable == "0") {
+			$("#confirm").hide();
+			$("#update").hide();
+			$.ajax({
+				type :"get",
+				url: "",
+				data: {},
+				success: function(data){
+
+				}
+			});
+			if (isSelf) {
+				$("#update").show();
+
+			}
+		}
+		function edit(){
+			var data = {
+
+			};
+
+			$.ajax({
+				type :"post",
+				url: window.domians + "/acquisition/put",
+				data: {data: Base64.encode(JSON.stringify(data))},
+				success: function(data){
+
+				}
+			});
+		}
+
+	</script>
 </body>
 </html

@@ -24,7 +24,7 @@ function N5Select(colNo,y, value){
 		if (dom) {	
 			dom.click();
 		}
-		alert(transYArr[Number(y)],y)
+		//alert(transYArr[Number(y)],y)
 		$("#I-"+transYArr[Number(y)]).val(value);
 }
 
@@ -68,84 +68,6 @@ function onSelectChange(that){
 	$("#allCode").html(str);
 	console.log(str)
 }
-
-//D 栏位改变
-function DChange(that, colNo,y){
-	// var D = $(".D-val").val(),
-	// 	T = $(".T-val").val();
-
-	// if (D == "0" && T == "3") {
-	// 	N5Select(colNo, y, 11);			
-		
-	// }else if (D == "-0" && T == "-3") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderChangeSelect(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("11");
-	// }else if (D == "8" && T == "1") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("12");
-	// }else if (D == "-8" && T == "-1") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("11");
-	// }else if (D == "4" && T == "9") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("13");
-	// }else if (D == "-4" && T == "-9") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("13");
-	// }else if (D == "6" && T == "3") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("14");
-	// }else if (D == "-6" && T == "-3") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("14");
-	// }else if (D == "2" && T == "1") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("15");
-	// }else if (D == "-2" && T == "-1") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("15");
-	// }else if (D == "10" && T == "9") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("16");
-	// }else if (D == "-10" && T == "-9") {		
-	// 	//console.log("index:"+colNo);
-	// 	var dom = $(".N5").children()[colNo];
-	// 	// mf.renderOpt(dom, array.N5_all, "N5");
-	// 	dom.click();
-	// 	$(".N5-val").val("16");
-	// }
-}
-
 
 	// 行内点击事件
 	$('.t1 tr td').click(function(e){		
@@ -384,9 +306,7 @@ $("#confirm").click(function(e){
 }
 
 function start(){
-	if (window.itemId) {
-		alert((window.itemId));
-	}
+	
 }
 
 start();
