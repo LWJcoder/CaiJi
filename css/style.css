@@ -114,11 +114,18 @@ table tr td{
 	background-color: #EDAF75;
 }
 
+.t3{
+	position: absolute;
+	right: 0;
+	top:25px;
+	margin-left: 5px;
+}
 
-.t2{
+@media screen and  (max-width: 1366px) {
+	.t2{
 	position: absolute;
 	top: 0;
-	left: 565px;
+	right:352px;
 	margin-left: 5px;
 }
 
@@ -126,9 +133,39 @@ table tr td{
 .t5{
 	position: absolute;
 	top:291px;
-	left: 565px;
+	right:352px;
 	margin-left: 5px;
 }
+
+.t1 tr td{
+	width: 36px;
+}
+	
+}
+
+@media screen and (min-width: 1366px) {
+	.t2{
+	position: absolute;
+	top: 0;
+	left: calc(100% - 660px - 7em);
+	margin-left: 5px;
+	}
+
+
+
+
+	.t5{
+		position: absolute;
+		top:291px;
+		left: calc(100% - 660px - 7em);
+		margin-left: 5px;
+	}
+
+	.t1 tr td{
+		width: 46px;		
+	}
+}
+
 
 th label{
 	font-size: 14px;
@@ -138,12 +175,7 @@ th input{
 	width: 60px;
 }
 
-.t3{
-	position: absolute;
-	left:  955px;
-	top:25px;
-	margin-left: 5px;
-}
+
 
 .chbx{
 	position: absolute;
@@ -454,3 +486,4 @@ footer .lf{
     top: 0;
     display: block;
 }*/
+

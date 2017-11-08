@@ -5,12 +5,15 @@ $("#loginWeb").click(function (){
 	var name = $("#username").val(),
 		psw = $("#password").val();
 
+	if (psw.length < 3) {
+		alert("密码长度小于3");
+	}
 	if (name.length > 0 && psw.length > 3) {
 		var obj = {"staffCode": name, "password": md5(psw)};
 		//console.log(obj.staffCode, obj.password);
 		$.ajax({
 			type: "post",
-			url: window.domain + "/acquisition/login",
+			url: window.domains + "/acquisition/login",
 
 			data: {data: Base64.encode(JSON.stringify(obj))},
 			success: function(data){

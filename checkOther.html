@@ -7,8 +7,15 @@
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-datepicker.css">
 	   <link href="./css/pagination.css" rel="stylesheet" type="text/css">
 	<style type="text/css">
+		body{
+			position: relative;
+			width: 100%;
+			height: 100%;
+			min-height: 500px;
+		}
 		tr th,tr td{
-			padding: 3px 8px ;
+			padding: 2px 4px ;
+			text-align: center;
 		}
 	
 		.man,.start, .end{
@@ -20,6 +27,31 @@
 			display: inline-block;
 		}
 
+		.action{
+			margin: 15px 15px  10px;
+		}
+
+		.count{
+			position: absolute;
+			bottom: 15px;
+			right: 13px;
+		}
+		.r1, .r2, .r3,  .r5,.r6{
+			width: 80px;
+
+		}
+
+		.r7{
+			width: 120px;
+		}
+
+		.r4,.r8, .r9{
+			width: 150px;
+		}
+
+		 .r10{
+		 	width: 260px;
+		 }
 	</style>
 	<link href="./css/bootstrap.css" rel="stylesheet">
 </head>
@@ -27,9 +59,10 @@
 	<div class="action">
 		<div class="man">
 			<label>录入人员</label>
-			<select id="inputMan" v-model = "inputMan">
+			<input id="inputMan" type="text" maxlength="15" >
+			<!-- <select id="inputMan" v-model = "inputMan">
 				
-			</select>
+			</select> -->
 		</div>
 
 		<div class="start">
@@ -50,25 +83,26 @@
 		<button class="btn btn-sm btn-success" id="search">查询</button>
 		
 	</div>
-	<table class="checkOther" id="listTable">
+	<table class="checkOther">
 		<tr>			
-			<th>结果码</th>
-			<th>识别码</th>
-			<th>页码</th>
-			<th>是否进入A库</th>
-			<th>横坐标</th>
-			<th>纵坐标</th>
-			<th>值</th>
-			<th>是否通过交叉校验</th>
-			<th>是否通过大师校验</th>
-			<th>操作</th>
+			<th class="r1">结果码</th>
+			<th class="r2">识别码</th>
+			<th class="r3">页码</th>
+			<th class="r4">是否进入A库</th>
+			<th class="r5">横坐标</th>
+			<th class="r6">纵坐标</th>
+			<th class="r7">值</th>
+			<th class="r8">是否通过交叉校验</th>
+			<th class="r9">是否通过大师校验</th>
+			<th class="r10">操作</th>
 		</tr>
 		
 	</table>
 	<table id="listTable"></table>
 	
-	<div id="pagination-container"></div>
+	
 	<div class="count">
+		<div id="pagination-container"></div>
 		<label>显示数量</label>
 		<select id="count">
 			<option value="10">10</option>
@@ -83,10 +117,30 @@
 	<script type="text/javascript" src="./js/plugin/bootstrap-datepicker.zh-CN.min.js"></script>
 	<script type="text/javascript" src="./js/plugin/base64.js"></script>
 	<script type="text/javascript">
+		function edit(){
+			window.location.href = window.domian + "/input.html";
+		}
+		
 	window.onload = function(){
 		var lists = null;
 		var count =  pageSize = 10, curPage = 1;
 
+		var temple = '<tr>\
+						<td> <span class="hide">  item.id</span>   item.resultCode  </td>\
+						<td>   item.identifyCode  </td>\
+						<td>   item.pageCode  </td>\
+						<td>   item.intoDbA  </td>\
+						<td>   item.acquisitionData.x  </td>\
+						<td>   item.acquisitionData.y  </td>\
+						<td>   item.acquisitionData.v  </td>\
+						<td>   item.crossCheck  </td>\
+						<td>   item.masterCheck  </td>\
+						<td><button class="btn btn-sm btn-success" onclick="edit()">报错</button> <button class="btn btn-sm btn-success" >交叉校验</button></td>\
+					</tr>';
+
+		$("#listTable").html($(temple));
+
+		
 		$('#startDate').datepicker({
 		  		format: 'yyyy-mm-dd',
 		  		language: 'zh-CN',
@@ -178,16 +232,16 @@
 		 		for (var i = lists.length - 1; i >= 0; i--) {
 		 			var item = lists[i];
 		 			temp += '<tr>\
-						<td> <span class="hide">{{item.id}}</span> {{item.resultCode}}</td>\
-						<td> {{item.identifyCode}}</td>\
-						<td> {{item.pageCode}}</td>\
-						<td> {{item.intoDbA}}</td>\
-						<td> {{item.acquisitionData.x}}</td>\
-						<td> {{item.acquisitionData.y}}</td>\
-						<td> {{item.acquisitionData.v}}</td>\
-						<td> {{item.crossCheck}}</td>\
-						<td> {{item.masterCheck}}</td>\
-						<td><button class="btn btn-small btn-success" onclick="edit()">修改</button> <button class="btn btn-small btn-success" onclick="check({{item.id}})">交叉校验</button></td>\
+						<td> <span class="hide">'+item.id+ '</span> '+item.resultCode+'</td>\
+						<td> '+item.identifyCode+'</td>\
+						<td> '+item.pageCode+'</td>\
+						<td> '+item.intoDbA+'</td>\
+						<td> '+item.acquisitionData.x+'</td>\
+						<td> '+item.acquisitionData.y+'</td>\
+						<td> '+item.acquisitionData.v+'</td>\
+						<td> '+item.crossCheck+'</td>\
+						<td> '+item.masterCheck+'</td>\
+						<td><button class="btn btn-sm btn-success" onclick="edit()">报错</button> <button class="btn btn-sm btn-success" onclick="check('+item.id+')">交叉校验</button></td>\
 					</tr>';
 
 		 		}
